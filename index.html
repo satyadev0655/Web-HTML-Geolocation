@@ -5,7 +5,23 @@
     <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
   </head>
   <body>
-    <h1>Hello there!</h1>
-    <a href="/me.html">My other page</a>
+
+  <p id="locdetails"></p>
+
+
+   <script>
+   var x = document.getElementById("locdetails");
+   
+   if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+
+  function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+   </script>
   </body>
 </html>
